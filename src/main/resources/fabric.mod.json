@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "my-mod",
+  "version": "${version}",
+  "name": "My Mod",
+  "description": "mod for my anarchy server",
+  "authors": [],
+  "contact": {},
+  "license": "unlicense",
+  "icon": "assets/my-mod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "myanarchyserver.mymod.client.MyModClient"
+    ],
+    "main": [
+      "myanarchyserver.mymod.MyMod"
+    ]
+  },
+  "mixins": [
+    "my-mod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "minecraft": ">=1.19.4"
+  }
+}

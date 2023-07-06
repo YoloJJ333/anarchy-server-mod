@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "myanarchyserver.mymod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "SmilMixin",
+    "explodingeggs.ChickenEntityMixin",
+    "explodingeggs.EggItemMixin",
+    "explodingeggs.EggMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
