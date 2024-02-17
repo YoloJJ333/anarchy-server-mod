@@ -44,7 +44,6 @@ public abstract class AbstractMinecartEntityMixin extends Entity {
     )
     private Vec3d increaseAccel(Vec3d vec, double x, double y, double z) {
         Vec3d newvec = vec.add(x, y, z);
-        System.out.println(this.world.getBlockState(new BlockPos(MathHelper.floor(this.getX()), MathHelper.floor(this.getY()) - 1, MathHelper.floor(this.getZ()))).toString());
         if(this.world.getBlockState(new BlockPos(MathHelper.floor(this.getX()), MathHelper.floor(this.getY()) - 1, MathHelper.floor(this.getZ()))).isOf(Blocks.REDSTONE_BLOCK)){
             speed = 240;
             return newvec.multiply(10.0);
