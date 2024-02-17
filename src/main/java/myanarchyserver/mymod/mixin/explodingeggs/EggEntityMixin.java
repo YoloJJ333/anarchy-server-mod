@@ -5,8 +5,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.projectile.thrown.EggEntity;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
-import net.minecraft.item.Item;
+import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
@@ -16,17 +15,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EggEntity.class)
-public class EggEntityMixin extends ThrownItemEntity {
-    public EggEntityMixin(EntityType<? extends ThrownItemEntity> entityType, World world) {
+public abstract class EggEntityMixin extends ThrownEntity {
+    protected EggEntityMixin(EntityType<? extends ThrownEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public EggEntityMixin(EntityType<? extends ThrownItemEntity> entityType, double d, double e, double f, World world) {
-        super(entityType, d, e, f, world);
+    protected EggEntityMixin(EntityType<? extends ThrownEntity> type, double x, double y, double z, World world) {
+        super(type, x, y, z, world);
     }
 
-    public EggEntityMixin(EntityType<? extends ThrownItemEntity> entityType, LivingEntity livingEntity, World world) {
-        super(entityType, livingEntity, world);
+    protected EggEntityMixin(EntityType<? extends ThrownEntity> type, LivingEntity owner, World world) {
+        super(type, owner, world);
     }
 
     @Inject(
@@ -55,7 +54,7 @@ public class EggEntityMixin extends ThrownItemEntity {
         }
 
         TntEntity tnt = new TntEntity(hitEntity.getWorld(), hitEntity.getX(), hitEntity.getY(), hitEntity.getZ(), null);
-        tnt.setFuse(0);
+        tnt.setFuse(60*20);
         this.world.spawnEntity(tnt);
     }
 
@@ -72,10 +71,5 @@ public class EggEntityMixin extends ThrownItemEntity {
 
         call = !call;
         fuse--;
-    }
-
-    @Override
-    protected Item getDefaultItem() {
-        return null;
     }
 }

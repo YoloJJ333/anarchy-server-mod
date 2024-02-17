@@ -7,7 +7,8 @@
     "SmilMixin",
     "explodingeggs.ChickenEntityMixin",
     "explodingeggs.EggItemMixin",
-    "explodingeggs.EggEntityMixin"
+    "explodingeggs.EggEntityMixin",
+    "AbstractMinecartEntityMixin"
   ],
   "client": [
   ],
