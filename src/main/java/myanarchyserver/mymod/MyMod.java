@@ -32,7 +32,6 @@ public class MyMod implements ModInitializer {
                                 .lore(Text.of("smil")));
                 tableBuilder.pool(pb);
             }
-
         });
     }
 }
