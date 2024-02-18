@@ -21,7 +21,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity {
         super(type, world);
     }
 
-    private int speed = 0;
+    private int fast = 0;
 
     @Redirect(
             method = {"moveOnRail"},
@@ -30,7 +30,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity {
                     target = "Ljava/lang/Math;min(DD)D"
             )
     )
-    private double increaseSpeedCap(double a, double b) {
+    private double increaseVelocityCap(double a, double b) {
         return Math.min(3.0, b);
     }
 
@@ -43,12 +43,11 @@ public abstract class AbstractMinecartEntityMixin extends Entity {
             )
     )
     private Vec3d increaseAccel(Vec3d vec, double x, double y, double z) {
-        Vec3d newvec = vec.add(x, y, z);
-        if(this.world.getBlockState(new BlockPos(MathHelper.floor(this.getX()), MathHelper.floor(this.getY()) - 1, MathHelper.floor(this.getZ()))).isOf(Blocks.REDSTONE_BLOCK)){
-            speed = 240;
-            return newvec.multiply(10.0);
+        if (this.world.getBlockState(new BlockPos(MathHelper.floor(this.getX()), MathHelper.floor(this.getY()) - 1, MathHelper.floor(this.getZ()))).isOf(Blocks.REDSTONE_BLOCK)) {
+            fast = 240;
+            return vec.multiply(10.0);
         }
-        return newvec;
+        return vec.add(x, y, z);
     }
 
     @Inject(
@@ -58,18 +57,17 @@ public abstract class AbstractMinecartEntityMixin extends Entity {
             ),
             cancellable = true
     )
-    private void increaseMaxSpeed(CallbackInfoReturnable<Double> cir) {
-        if (speed > 0) {
+    private void increaseMaxInGameSpeed(CallbackInfoReturnable<Double> cir) {
+        if (fast > 0) {
+            fast--;
             try {
                 if (this.getFirstPassenger().getHandItems().iterator().next().isOf(Items.REDSTONE_TORCH)) {
-                    cir.setReturnValue((this.isTouchingWater() ? 4.0 : 8.0) / 4);
-                } else {
-                    cir.setReturnValue((this.isTouchingWater() ? 4.0 : 8.0) / 5);
+                    cir.setReturnValue((this.isTouchingWater() ? 4.0 : 8.0) * (Math.min(60, Math.max(30, fast)) / 60.0) / 4.0);
+                    return;
                 }
             } catch (Exception ignored) {
-                cir.setReturnValue((this.isTouchingWater() ? 4.0 : 8.0) / 5);
             }
+            cir.setReturnValue((this.isTouchingWater() ? 4.0 : 8.0) * (Math.min(60, Math.max(30, fast)) / 60.0) / 5.0);
         }
-        speed = Math.max(0, --speed);
     }
 }
