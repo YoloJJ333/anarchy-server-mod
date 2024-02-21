@@ -64,7 +64,7 @@ public abstract class EggEntityMixin extends ThrownEntity {
         }
 
         TntEntity tnt = new TntEntity(hitEntity.getWorld(), hitX, hitY, hitZ, null);
-        tnt.setFuse(60 * 20);
+        tnt.setFuse(1200);
         this.world.spawnEntity(tnt);
     }
 
