@@ -41,7 +41,6 @@ public abstract class EggEntityMixin extends ThrownEntity {
         TntEntity tnt = new TntEntity(this.world, x, y, z, null);
         tnt.setFuse(0);
         this.world.spawnEntity(tnt);
-        Log.info("Explosion: " + new Vec3d(x, y, z));
     }
 
     @Inject(
