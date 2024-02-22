@@ -27,7 +27,7 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity {
         if (this.isBaby() && this.getActivity().equals(PiglinActivity.ADMIRING_ITEM)) {
             TntEntity tnt = new TntEntity(this.world, this.getX(), this.getY(), this.getZ(), null);
             tnt.setFuse(20);
-            tnt.setPower(0.5f);
+            tnt.setPower(0.75f);
             tnt.setFire(true);
             tnt.setVelocity(Vec3d.ZERO);
             this.world.spawnEntity(tnt);
