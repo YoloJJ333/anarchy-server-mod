@@ -1,5 +1,6 @@
 package myanarchyserver.mymod.mixin.dupepunishment;
 
+import myanarchyserver.mymod.Log;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -31,6 +32,7 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity {
             tnt.setFire(true);
             tnt.setVelocity(Vec3d.ZERO);
             this.world.spawnEntity(tnt);
+            Log.info("Baby Piglin Duped at: " + new Vec3d(this.getX(), this.getY(), this.getZ()));
         }
     }
 }
