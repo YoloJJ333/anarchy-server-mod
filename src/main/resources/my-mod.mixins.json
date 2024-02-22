@@ -4,11 +4,13 @@
   "package": "myanarchyserver.mymod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AbstractMinecartEntityMixin",
     "SmilMixin",
+    "dupepunishment.PiglinEntityMixin",
+    "dupepunishment.TntEntityMixin",
     "explodingeggs.ChickenEntityMixin",
-    "explodingeggs.EggItemMixin",
     "explodingeggs.EggEntityMixin",
-    "AbstractMinecartEntityMixin"
+    "explodingeggs.EggItemMixin"
   ],
   "client": [
   ],
