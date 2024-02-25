@@ -1,12 +1,13 @@
-package myanarchyserver.mymod.mixin.dupepunishment;
+package yolojj333.mymod.mixin.dupepunishment;
 
-import myanarchyserver.mymod.Log;
+import yolojj333.mymod.Log;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.AbstractPiglinEntity;
 import net.minecraft.entity.mob.PiglinActivity;
 import net.minecraft.entity.mob.PiglinEntity;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,7 +27,7 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity {
     )
     private void punish(DamageSource source, int lootingMultiplier, boolean allowDrops, CallbackInfo ci) {
         if (this.isBaby() && this.getActivity().equals(PiglinActivity.ADMIRING_ITEM)) {
-            TntEntity tnt = new TntEntity(this.world, this.getX(), this.getY(), this.getZ(), null);
+            TntEntity tnt = new TntEntity(this.world, MathHelper.floor(this.getX()) + 0.5, this.getY() + 0.5, MathHelper.floor(this.getZ()) + 0.5, null);
             tnt.setFuse(20);
             tnt.setPower(0.75f);
             tnt.setFire(true);

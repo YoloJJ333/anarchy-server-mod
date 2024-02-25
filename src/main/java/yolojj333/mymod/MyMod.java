@@ -1,4 +1,4 @@
-package myanarchyserver.mymod;
+package yolojj333.mymod;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;

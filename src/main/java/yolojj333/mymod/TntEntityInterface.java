@@ -1,4 +1,4 @@
-package myanarchyserver.mymod;
+package yolojj333.mymod;
 
 public interface TntEntityInterface {
     default void setPower(float power) {

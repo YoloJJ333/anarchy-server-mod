@@ -1,6 +1,6 @@
-package myanarchyserver.mymod.mixin.explodingeggs;
+package yolojj333.mymod.mixin.explodingeggs;
 
-import myanarchyserver.mymod.Log;
+import yolojj333.mymod.Log;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

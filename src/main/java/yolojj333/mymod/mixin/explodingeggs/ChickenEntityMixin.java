@@ -1,4 +1,4 @@
-package myanarchyserver.mymod.mixin.explodingeggs;
+package yolojj333.mymod.mixin.explodingeggs;
 
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.passive.ChickenEntity;

@@ -11,10 +11,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "myanarchyserver.mymod.client.MyModClient"
+      "yolojj333.mymod.client.MyModClient"
     ],
     "main": [
-      "myanarchyserver.mymod.MyMod"
+      "yolojj333.mymod.MyMod"
     ]
   },
   "mixins": [
@@ -27,7 +27,7 @@
   },
   "custom": {
     "loom:injected_interfaces": {
-      "net/minecraft/class_1541": ["myanarchyserver/mymod/TntEntityInterface"]
+      "net/minecraft/class_1541": ["yolojj333/mymod/TntEntityInterface"]
     }
   }
 }

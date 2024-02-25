@@ -1,4 +1,4 @@
-package myanarchyserver.mymod.mixin;
+package yolojj333.mymod.mixin;
 
 import net.minecraft.item.OnAStickItem;
 import org.spongepowered.asm.mixin.Mixin;
