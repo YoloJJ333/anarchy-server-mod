@@ -1,6 +1,6 @@
-package yolojj333.mymod.mixin.dupepunishment;
+package yolojj333.anarchyserver.mixin.dupepunishment;
 
-import yolojj333.mymod.Log;
+import yolojj333.anarchyserver.Log;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.damage.DamageSource;

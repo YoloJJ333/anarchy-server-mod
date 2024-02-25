@@ -1,4 +1,4 @@
-package yolojj333.mymod.mixin;
+package yolojj333.anarchyserver.mixin;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;

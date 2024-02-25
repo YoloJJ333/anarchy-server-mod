@@ -1,4 +1,4 @@
-package yolojj333.mymod;
+package yolojj333.anarchyserver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

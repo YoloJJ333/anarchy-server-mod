@@ -1,6 +1,6 @@
-package yolojj333.mymod.mixin.dupepunishment;
+package yolojj333.anarchyserver.mixin.dupepunishment;
 
-import yolojj333.mymod.TntEntityInterface;
+import yolojj333.anarchyserver.TntEntityInterface;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.TntEntity;

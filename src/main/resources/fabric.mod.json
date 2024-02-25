@@ -11,14 +11,14 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "yolojj333.mymod.client.MyModClient"
+      "yolojj333.anarchyserver.client.AnarchyServerClient"
     ],
     "main": [
-      "yolojj333.mymod.MyMod"
+      "yolojj333.anarchyserver.AnarchyServer"
     ]
   },
   "mixins": [
-    "my-mod.mixins.json"
+    "anarchy-server.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.15.6",
@@ -27,7 +27,7 @@
   },
   "custom": {
     "loom:injected_interfaces": {
-      "net/minecraft/class_1541": ["yolojj333/mymod/TntEntityInterface"]
+      "net/minecraft/class_1541": ["yolojj333/anarchyserver/TntEntityInterface"]
     }
   }
 }

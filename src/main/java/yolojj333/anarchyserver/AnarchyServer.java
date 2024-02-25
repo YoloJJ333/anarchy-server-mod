@@ -1,4 +1,4 @@
-package yolojj333.mymod;
+package yolojj333.anarchyserver;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
@@ -14,7 +14,7 @@ import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 
-public class MyMod implements ModInitializer {
+public class AnarchyServer implements ModInitializer {
     public void onInitialize() {
         Log.info("anarchy mod starting");
         NbtCompound smil = new NbtCompound();
