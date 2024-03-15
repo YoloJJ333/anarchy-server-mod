@@ -21,11 +21,7 @@ public class ChickenEntityMixin {
     )
     private ItemEntity dropEggs(ChickenEntity instance, ItemConvertible itemConvertible) {
         instance.getWorld().createExplosion(instance, instance.getX(), instance.getY(), instance.getZ(), 2.42069F, World.ExplosionSourceType.MOB);
-        for(int egg = 0; egg < 16; egg++) {
-            instance.dropItem(itemConvertible);
-        }
-
-        for(int egg = 0; egg < 16; egg++) {
+        for(int egg = 0; egg < 32; egg++) {
             instance.dropItem(itemConvertible);
         }
 
