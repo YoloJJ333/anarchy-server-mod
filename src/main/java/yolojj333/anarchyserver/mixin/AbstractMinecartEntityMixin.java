@@ -24,7 +24,7 @@ public abstract class AbstractMinecartEntityMixin extends Entity {
     private int fast = 0;
 
     @Redirect(
-            method = {"moveOnRail"},
+            method = "moveOnRail",
             at = @At(
                     value = "INVOKE",
                     target = "Ljava/lang/Math;min(DD)D"
