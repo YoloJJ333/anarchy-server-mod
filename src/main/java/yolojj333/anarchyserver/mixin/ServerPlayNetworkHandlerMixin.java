@@ -14,6 +14,6 @@ public class ServerPlayNetworkHandlerMixin {
             )
     )
     private int nerfFlying(int constant){
-        return 16;
+        return 30;
     }
 }
