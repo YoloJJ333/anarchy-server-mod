@@ -1,5 +1,6 @@
 package yolojj333.anarchyserver.mixin.dupepunishment;
 
+import org.spongepowered.asm.mixin.Unique;
 import yolojj333.anarchyserver.util.TntEntityInterface;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -16,7 +17,9 @@ public abstract class TntEntityMixin extends Entity implements TntEntityInterfac
         super(type, world);
     }
 
+    @Unique
     float power = 4.0f;
+    @Unique
     boolean fire = false;
 
     @Override
