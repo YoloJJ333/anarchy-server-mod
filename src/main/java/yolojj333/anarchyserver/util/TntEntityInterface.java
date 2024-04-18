@@ -1,9 +1,8 @@
 package yolojj333.anarchyserver.util;
 
 public interface TntEntityInterface {
-    default void setPower(float power) {
-    }
+    default void jank(){}
 
-    default void setFire(boolean fire) {
-    }
+    void setPower(float power);
+    void setFire(boolean fire);
 }
