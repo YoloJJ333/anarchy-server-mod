@@ -31,7 +31,7 @@ public abstract class EggEntityMixin extends ThrownEntity {
     }
 
     @Inject(
-            method = "onCollision(Lnet/minecraft/util/hit/HitResult;)V",
+            method = "onCollision",
             at = @At("HEAD")
     )
     private void onCollision(HitResult hitResult, CallbackInfo ci) {
@@ -44,7 +44,7 @@ public abstract class EggEntityMixin extends ThrownEntity {
     }
 
     @Inject(
-            method = "onEntityHit(Lnet/minecraft/util/hit/EntityHitResult;)V",
+            method = "onEntityHit",
             at = @At("TAIL")
     )
     private void onEntityHit(EntityHitResult entityHitResult, CallbackInfo ci) {

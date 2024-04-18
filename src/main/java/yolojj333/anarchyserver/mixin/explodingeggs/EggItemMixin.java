@@ -19,7 +19,7 @@ public class EggItemMixin extends Item {
     }
 
     @Inject(
-            method = "use(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/util/Hand;)Lnet/minecraft/util/TypedActionResult;",
+            method = "use",
             at = @At("HEAD")
     )
     private void setItemCooldown(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
