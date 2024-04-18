@@ -27,7 +27,7 @@
   },
   "custom": {
     "loom:injected_interfaces": {
-      "net/minecraft/class_1541": ["yolojj333/anarchyserver/TntEntityInterface"]
+      "net/minecraft/class_1541": ["yolojj333/anarchyserver/util/TntEntityInterface"]
     }
   }
 }
