@@ -1,6 +1,7 @@
 package yolojj333.anarchyserver.mixin.explodingeggs;
 
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.thrown.EggEntity;
 import net.minecraft.item.EggItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,6 +24,23 @@ public class EggItemMixin extends Item {
             at = @At("HEAD")
     )
     private void setItemCooldown(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
-        user.getItemCooldownManager().set(this, 10);
+        ItemStack itemStack = user.getStackInHand(hand);
+        int count = itemStack.getCount();
+        if (count > 4) {
+            user.getItemCooldownManager().set(this, 100);
+            if (!world.isClient) {
+                EggEntity eggEntity = new EggEntity(world, user);
+                eggEntity.setItem(itemStack);
+                eggEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 5.0f);
+                for (int i = 0; i < count; i++) {
+                    world.spawnEntity(eggEntity);
+                }
+            }
+            if (!user.getAbilities().creativeMode) {
+                itemStack.decrement(count - 1);
+            }
+        } else {
+            user.getItemCooldownManager().set(this, 10);
+        }
     }
 }
