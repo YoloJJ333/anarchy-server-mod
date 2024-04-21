@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractMinecartEntityMixin",
+    "ItemMixin",
     "ServerPlayNetworkHandlerMixin",
     "SmilMixin",
     "dupepunishment.PiglinEntityMixin",
