@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(ItemEntity.class)
-public class ItemEntityMixin {
+@Mixin(value = ItemEntity.class)
+public abstract class ItemEntityMixin {
     @Redirect(
             method = "canMerge()Z",
             at = @At(
