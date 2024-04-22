@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "my-mod",
+  "id": "anarchy-mod",
   "version": "1.1.5",
-  "name": "My Mod",
+  "name": "My Anarchy Mod",
   "description": "mod for my anarchy server",
   "authors": [],
   "contact": {},
