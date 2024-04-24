@@ -1,6 +1,5 @@
 package yolojj333.anarchyserver.mixin.dupepunishment;
 
-import yolojj333.anarchyserver.AnarchyServer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -14,6 +13,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import static yolojj333.anarchyserver.AnarchyServer.log;
 
 @Mixin(PiglinEntity.class)
 public abstract class PiglinEntityMixin extends AbstractPiglinEntity {
@@ -33,7 +34,7 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity {
             tnt.setFire(true);
             tnt.setVelocity(Vec3d.ZERO);
             this.world.spawnEntity(tnt);
-            AnarchyServer.log.info("Baby Piglin Duped at: " + new Vec3d(this.getX(), this.getY(), this.getZ()));
+            log.info("Baby Piglin Duped at: " + new Vec3d(this.getX(), this.getY(), this.getZ()));
         }
     }
 }
