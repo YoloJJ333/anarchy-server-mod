@@ -1,6 +1,6 @@
 package yolojj333.anarchyserver.mixin.explodingeggs;
 
-import yolojj333.anarchyserver.Log;
+import yolojj333.anarchyserver.AnarchyServer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -58,9 +58,9 @@ public abstract class EggEntityMixin extends ThrownEntity {
             this.world.createExplosion(this, hitX, hitY, hitZ, 6.0F, World.ExplosionSourceType.BLOCK);
             if (owner != null) {
                 this.world.createExplosion(this, owner.getX(), owner.getY(), owner.getZ(), 5.0F, World.ExplosionSourceType.BLOCK);
-                Log.warn("Player threw: " + new Vec3d(owner.getX(), owner.getY(), owner.getZ()));
+                AnarchyServer.log.warn("Player threw: " + new Vec3d(owner.getX(), owner.getY(), owner.getZ()));
             }
-            Log.warn("Player hit: " + new Vec3d(hitX, hitY, hitZ));
+            AnarchyServer.log.warn("Player hit: " + new Vec3d(hitX, hitY, hitZ));
         }
 
         TntEntity tnt = new TntEntity(hitEntity.getWorld(), hitX, hitY, hitZ, null);

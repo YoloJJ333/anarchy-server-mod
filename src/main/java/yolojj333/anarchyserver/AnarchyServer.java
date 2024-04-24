@@ -16,14 +16,17 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import yolojj333.anarchyserver.util.ItemInterface;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AnarchyServer implements ModInitializer {
+    public static final Logger log = LoggerFactory.getLogger("anarchy-mod");
     public void onInitialize() {
-        Log.info("anarchy mod starting");
+        log.info("anarchy mod starting");
         NbtCompound smil = new NbtCompound();
         smil.putInt("CustomModelData", 1);
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
