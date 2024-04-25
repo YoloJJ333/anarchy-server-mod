@@ -34,7 +34,7 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity {
             tnt.setFire(true);
             tnt.setVelocity(Vec3d.ZERO);
             this.world.spawnEntity(tnt);
-            log.info("Baby Piglin Duped at: " + new Vec3d(this.getX(), this.getY(), this.getZ()));
+            log.info("Baby Piglin Duped at: {}", new Vec3d(this.getX(), this.getY(), this.getZ()));
         }
     }
 }
