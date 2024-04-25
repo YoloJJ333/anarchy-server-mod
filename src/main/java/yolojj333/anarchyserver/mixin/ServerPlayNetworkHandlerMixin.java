@@ -13,7 +13,7 @@ public class ServerPlayNetworkHandlerMixin {
                 intValue = 80
             )
     )
-    private int nerfFlying(int constant){
+    private int nerfFlying(int flyTicks){
         return 30;
     }
 }
