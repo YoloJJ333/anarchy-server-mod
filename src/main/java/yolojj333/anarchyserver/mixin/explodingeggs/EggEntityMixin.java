@@ -68,7 +68,6 @@ public abstract class EggEntityMixin extends ThrownEntity {
             this.world.createExplosion(this, hitX, hitY, hitZ, 6.0F, World.ExplosionSourceType.TNT);
             if (owner != null) {
                 this.world.createExplosion(this, owner.getX(), owner.getY(), owner.getZ(), 5.0F, World.ExplosionSourceType.TNT);
-//                log.info(String.format("Player threw: %1s, At: %2s", owner.getName(), new Vec3d(owner.getX(), owner.getY(), owner.getZ())));
                 log.info("Player threw: {}, At: {}", owner.getName(), new Vec3d(owner.getX(), owner.getY(), owner.getZ()));
             }
             log.info("Player hit: {}, At: {}", hitEntity.getName(), new Vec3d(hitX, hitY, hitZ));
