@@ -27,11 +27,11 @@ public class EggItemMixin extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         int count = itemStack.getCount();
         if (count > 4) {
-            user.getItemCooldownManager().set(this, count * 8);
+            user.getItemCooldownManager().set(this, count * 9);
             if (!world.isClient) {
                 for (int i = 0; i < count; i++) {
                     EggEntity eggEntity = new EggEntity(world, user);
-                    eggEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 10.0f);
+                    eggEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 1.5f, 35.0f);
                     world.spawnEntity(eggEntity);
                 }
             }

@@ -10,13 +10,16 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static yolojj333.anarchyserver.AnarchyServer.log;
 
+@Debug(export = true)
 @Mixin(EggEntity.class)
 public abstract class EggEntityMixin extends ThrownEntity {
     protected EggEntityMixin(EntityType<? extends ThrownEntity> entityType, World world) {
@@ -33,11 +36,16 @@ public abstract class EggEntityMixin extends ThrownEntity {
 
     @Inject(
             method = "onCollision",
-            at = @At("HEAD")
+            at = @At("HEAD"),
+            cancellable = true
     )
     private void explodeCollision(HitResult hitResult, CallbackInfo ci) {
-        if (((EntityHitResult) hitResult).getEntity().getType().equals(EntityType.TNT)) { // need to disable this.discard if collide w/ tnt
-            return;
+        try {
+            if (((EntityHitResult) hitResult).getEntity().getType().equals(EntityType.TNT)) {
+                ci.cancel();
+                return;
+            }
+        } catch (Exception ignored) {
         }
         double x = hitResult.getPos().getX();
         double y = hitResult.getPos().getY();
@@ -45,20 +53,6 @@ public abstract class EggEntityMixin extends ThrownEntity {
         TntEntity tnt = new TntEntity(this.world, x, y, z, null);
         tnt.setFuse(0);
         this.world.spawnEntity(tnt);
-
-    }
-
-    @Inject(
-            method = "onCollision",
-            at = @At("TAIL")
-    )
-    private void ignoreTNT(HitResult hitResult, CallbackInfo ci) {
-        if (((EntityHitResult) hitResult).getEntity().getType().equals(EntityType.TNT)) { // need to disable this.discard if collide w/ tnt
-            // spawn back egg
-            Entity egg = this;
-            egg.addVelocity(0, 10, 0);
-            this.world.spawnEntity(egg);
-        }
     }
 
     @Inject(
@@ -79,26 +73,25 @@ public abstract class EggEntityMixin extends ThrownEntity {
                 log.info(String.format("Player threw: %1s, At: %2s", owner.getName(), new Vec3d(owner.getX(), owner.getY(), owner.getZ())));
             }
             log.info(String.format("Player hit: %1s, At: %2s", hitEntity.getName(), new Vec3d(hitX, hitY, hitZ)));
-        } else if (hitEntity.getType().equals(EntityType.TNT)) {
-            return;
         }
-
         TntEntity tnt = new TntEntity(hitEntity.getWorld(), hitX, hitY, hitZ, null);
         tnt.setFuse(1200);
         this.world.spawnEntity(tnt);
     }
 
+    @Unique
     private int fuse = 100;
+    @Unique
     private boolean call = true;
 
+    @Override
     public void tick() {
         super.tick();
-        if (call) {
-            TntEntity tnt = new TntEntity(this.world, this.getX(), this.getY(), this.getZ(), null);
+        if (call || fuse < 0) {
+            TntEntity tnt = new TntEntity(this.world, this.getX(), fuse < 0 ? this.getY() + 0.5 : this.getY(), this.getZ(), null);
             tnt.setFuse(fuse);
             this.world.spawnEntity(tnt);
         }
-
         call = !call;
         fuse--;
     }
