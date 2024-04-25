@@ -10,7 +10,6 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +18,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static yolojj333.anarchyserver.AnarchyServer.log;
 
-@Debug(export = true)
 @Mixin(EggEntity.class)
 public abstract class EggEntityMixin extends ThrownEntity {
     protected EggEntityMixin(EntityType<? extends ThrownEntity> entityType, World world) {
