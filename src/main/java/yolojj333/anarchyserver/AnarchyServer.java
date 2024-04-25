@@ -33,7 +33,7 @@ public class AnarchyServer implements ModInitializer {
             if (source.isBuiltin()) {
                 LootPool.Builder pb = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(RandomChanceLootCondition.builder(/*0.0001F*/1.0F))
+                        .conditionally(RandomChanceLootCondition.builder(0.0001F/*1.0F*/))
                         .conditionally(SurvivesExplosionLootCondition.builder())
                         .with(ItemEntry.builder(Items.CARROT_ON_A_STICK))
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F)))
