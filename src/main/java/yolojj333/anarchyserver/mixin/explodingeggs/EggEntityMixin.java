@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.EggEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.util.hit.EntityHitResult;
@@ -39,7 +40,7 @@ public abstract class EggEntityMixin extends ThrownEntity {
     )
     private void explodeCollision(HitResult hitResult, CallbackInfo ci) {
         try {
-            if (((EntityHitResult) hitResult).getEntity().getType().equals(EntityType.TNT)) {
+            if (((EntityHitResult) hitResult).getEntity() instanceof TntEntity) {
                 ci.cancel();
                 return;
             }
@@ -63,7 +64,7 @@ public abstract class EggEntityMixin extends ThrownEntity {
         double hitX = hitEntity.getX();
         double hitY = hitEntity.getY();
         double hitZ = hitEntity.getZ();
-        if (hitEntity.getType().equals(EntityType.PLAYER)) {
+        if (hitEntity instanceof PlayerEntity) {
             this.world.createExplosion(this, hitX, hitY, hitZ, 6.0F, World.ExplosionSourceType.TNT);
             this.world.createExplosion(this, hitX, hitY, hitZ, 6.0F, World.ExplosionSourceType.TNT);
             if (owner != null) {
