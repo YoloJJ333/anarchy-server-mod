@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "anarchy-mod",
-  "version": "1.1.9",
+  "version": "${version}",
   "name": "My Anarchy Mod",
   "description": "mod for my anarchy server",
   "authors": ["YoloJJ333"],
@@ -21,9 +21,9 @@
     "anarchy-server.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.6",
+    "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": ">=1.19.4"
+    "minecraft": ">=${minecraft_version}"
   },
   "custom": {
     "loom:injected_interfaces": {
