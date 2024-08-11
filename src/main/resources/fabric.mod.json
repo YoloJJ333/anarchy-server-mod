@@ -4,9 +4,9 @@
   "version": "1.1.9",
   "name": "My Anarchy Mod",
   "description": "mod for my anarchy server",
-  "authors": [],
+  "authors": ["YoloJJ333"],
   "contact": {},
-  "license": "unlicense",
+  "license": "MIT",
   "icon": "assets/my-mod/icon.png",
   "environment": "*",
   "entrypoints": {
