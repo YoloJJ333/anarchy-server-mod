@@ -18,7 +18,7 @@
     ]
   },
   "mixins": [
-    "anarchy-server.mixins.json"
+    "mixins.anarchy-server.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
