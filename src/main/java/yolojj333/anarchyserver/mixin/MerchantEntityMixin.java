@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MerchantEntity.class)
-public class MerchantEntityMixin {
+public abstract class MerchantEntityMixin {
     @Inject(
             method = "canBeLeashedBy",
             at = @At("HEAD"),

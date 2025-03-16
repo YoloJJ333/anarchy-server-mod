@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EggItem.class)
-public class EggItemMixin extends Item {
+public abstract class EggItemMixin extends Item {
     public EggItemMixin(Settings settings) {
         super(settings);
     }

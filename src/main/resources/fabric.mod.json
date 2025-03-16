@@ -21,9 +21,9 @@
     "mixins.anarchy-server.json"
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
+    "fabricloader": ">=0.15.6",
     "fabric": "*",
-    "minecraft": ">=${minecraft_version}"
+    "minecraft": ">=1.19.4"
   },
   "custom": {
     "loom:injected_interfaces": {

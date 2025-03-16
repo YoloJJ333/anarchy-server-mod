@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ChickenEntity.class)
-public class ChickenEntityMixin {
+public abstract class ChickenEntityMixin {
     @Redirect(
             method = "tickMovement",
             at = @At(
